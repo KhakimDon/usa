@@ -162,6 +162,7 @@ export default {
 </script>
 
 <template>
+  <img src="./assets/l.png" alt="">
   <header class="header">
     <div class="top">
       <div class="wrapper">
