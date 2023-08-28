@@ -34,8 +34,8 @@ export default {
       b.classList.toggle("popmenuactive")
 
     },
-     fetchdata() {
-       axios.get(import.meta.env.VITE_API_KEY).then((response) => {
+    async fetchdata() {
+      await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
         for (let i of response.data.data) {
           let obj = {
             name: i[0],
@@ -120,11 +120,8 @@ export default {
           if (check.children[2].value.length > 0) {
             for(let i of this.students){
               if(i.id == event.target.children[1].value){
+                this.pop = true
                 this.student = i
-                
-                setTimeout(() => {
-                  this.pop = true
-                }, 1000);
               }
 
             }
@@ -137,11 +134,8 @@ export default {
         if(check.children.length == 0){
           for(let i of this.students){
               if(i.id == event.target.children[1].value){
+                this.pop = true
                 this.student = i
-                console.log(this.student);
-                setTimeout(() => {
-                  this.pop = true
-                }, 1000);
               }
 
             }
