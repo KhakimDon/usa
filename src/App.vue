@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       students: [],
-      just: false,
+      just1: false,
       pop: false,
       student: {}
     };
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     popmenuu(){
-      this.just =  false
+      this.just1 =  !this.just1 
     },
     async fetchdata() {
       await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
@@ -242,11 +242,11 @@ export default {
           
         </div>
         <div @click="popmenuu" class="popup">
-          <!-- <span :class="{timess: this.just == true}"></span>
-          <span :class="{timess: this.just == true}"></span>
-          <span :class="{timess: this.just == true}"></span> -->
+          <!-- <span :class="{timess: this.just1 == true}"></span>
+          <span :class="{timess: this.just1 == true}"></span>
+          <span :class="{timess: this.just1 == true}"></span> -->
         </div>
-        <div :class="{popmenuactive: this.just == true}" class="popmenu">
+        <div :class="{popmenuactive: this.just1 == true}" class="popmenu">
           <p style="display: flex; justify-content: center;width:100%; color: white; margin-top: 15px">
             CONTACT US
             <span ></span>
