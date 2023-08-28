@@ -108,8 +108,7 @@ export default {
       }
     },
     popup(item){
-      this.pop = true
-      this.student = item
+      
     },
     rest() {
       if (event.target.children[1].value.length < 4) {
@@ -121,7 +120,8 @@ export default {
           if (check.children[2].value.length > 0) {
             for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                this.popup(i)
+                this.pop = true
+                this.student = i
               }
 
             }
@@ -134,7 +134,8 @@ export default {
         if(check.children.length == 0){
           for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                this.popup(i)
+                this.pop = true
+                this.student = i
               }
 
             }

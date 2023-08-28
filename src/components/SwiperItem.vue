@@ -84,7 +84,7 @@ export default {
                 link: "https://www.educanada.ca/index.aspx?lang=eng",
             },
             {
-                logo: "https://1.downloader.disk.yandex.uz/preview/01c15cb351e8dd5fc16adef91cac9bc4911ec648bce9b4a6086f93df85bf23ee/inf/btta-dzT_DDJx38DmkpiyH-bXAfEtp4AwEgV0YuqosqLOzsueVHmBF8vTSbbs4FjX-d90rVVhR9oykEklg_wAg%3D%3D?uid=1709232587&filename=%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%20%D0%B1%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%284%29.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=1709232587&tknv=v2&size=1903x931",
+                logo: "src/assets/l.png",
                 title: "Mr.Doniyor's School",
                 country: "Uzbekistan",
                 link: "http://mrdoniyor.com/",
