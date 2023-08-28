@@ -397,7 +397,7 @@ export default {
         </svg>
       </div>
     </div>
-    <Popup :_name="this._name"/>
+    <!-- <Popup :_name="this._name"/> -->
   </main>
 </template>
 
