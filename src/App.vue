@@ -18,6 +18,8 @@ export default {
       just23: false,
       pop: false,
       student: {},
+      _name: "khakim",
+      _id: "78448"
     };
   },
   created() {
@@ -107,17 +109,7 @@ export default {
         }
       }
     },
-    getSmth(item){
-      if(item == "name"){
-        return this.student.name
-      }
-      if(item == "id"){
-        return   "ID: "  + this.student.id
-      }
-      if(item == "subject"){
-        return  this.student.subject
-      }
-    },
+   
     rest() {
       if (event.target.children[1].value.length < 4) {
         event.target.children[1].style.border = "2px solid red";
@@ -130,6 +122,8 @@ export default {
               if(i.id == event.target.children[1].value){
                 this.pop = true
                 this.student = i
+                this._name = i.name
+                this._id = i.id
         //         <div class="popups_wrapper_content">
         //   <h2>{{ this.student.name }}</h2>
         //   <h2>ID: {{ this.student.id }}</h2>
@@ -148,6 +142,8 @@ export default {
               if(i.id == event.target.children[1].value){
                 this.pop = true
                 this.student = i
+                this._name = i.name
+                this._id = i.id
               }
 
             }
@@ -399,11 +395,11 @@ export default {
         </svg>
       </div>
     </div>
-    <div v-if="pop" class="popups">
+    <div class="popups">
       <div class="popups_wrapper">
         <div class="popups_wrapper_content">
-          <h2>{{ this.getSmth("name") }}</h2>
-          <h2>{{ this.getSmth("id") }}</h2>
+          <h2> {{ this._name }} </h2>
+          <h2> {{ this._id }}</h2>
         </div>
         <hr class="popup_line">
         <!-- <div v-for="item of this.getSmth('subject')" :key="item.id" class="popup_item">
@@ -562,6 +558,11 @@ export default {
   .popup_item div{
     flex: initial !important;
   }
+}
+
+.popups{
+  opacity: 0.5 !important;
+  pointer-events: none !important;
 }
 
 </style>
