@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     popmenuu(){
-      this.just =  !this.just 
+      this.just =  false
     },
     async fetchdata() {
       await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
