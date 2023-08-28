@@ -110,7 +110,7 @@ export default {
     popup(item){
       
     },
-    rest() {
+    async rest() {
       if (event.target.children[1].value.length < 4) {
         event.target.children[1].style.border = "2px solid red";
       } else {  
@@ -120,7 +120,9 @@ export default {
           if (check.children[2].value.length > 0) {
             for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                this.student = i
+                 this.student.id = i.id
+                 this.student.name = i.name
+                 this.student.subjects = i.subjects
                 console.log(this.student);
                 setTimeout(() => {
                   this.pop = true
@@ -137,7 +139,9 @@ export default {
         if(check.children.length == 0){
           for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                this.student = i
+                this.student.id = i.id
+                 this.student.name = i.name
+                 this.student.subjects = i.subjects
                 console.log(this.student);
                 setTimeout(() => {
                   this.pop = true
