@@ -1,5 +1,5 @@
 <template>
-  <div class="popmenu popmenuactive">
+  <div class="popmenu">
           <p class="g6">
             CONTACT US
             <span ></span>

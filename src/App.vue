@@ -18,7 +18,6 @@ export default {
       just23: false,
       pop: false,
       student: {},
-      pops1: false,
     };
   },
   created() {
@@ -26,8 +25,14 @@ export default {
   },
   methods: {
     popmenuu(){
-      this.just2 =  !this.just2 
-      this.pops1 = !this.pops1
+      // console.log(burgermenu);
+      let s = document.querySelectorAll(".sticks")
+      for(let i of s){
+        i.classList.toggle("timess")
+      }
+      let b = document.querySelector(".burgermenu")
+      b.classList.toggle("popmenuactive")
+
     },
     async fetchdata() {
       await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
@@ -247,15 +252,15 @@ export default {
           
         </div>
         <div @click="popmenuu" class="popup" >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="sticks"></span>
+          <span class="sticks"></span>
+          <span class="sticks"></span>
         </div>
         
       </div>
     </div>
   </header>
-  <Pop  v-if="this.pops1"/>
+  <Pop  class="burgermenu"/>
   <main class="main">
     <div class="wrapper">
       <div class="left">
@@ -521,13 +526,13 @@ export default {
   margin-right: 10px;
 }
 }
-.timess :nth-child(1){
+.timess:nth-child(1){
   transform: rotate(45deg) translateY(10px) translateX(10px);
 }
-.timess :nth-child(2){
+.timess:nth-child(2){
   transform: rotate(-45deg)  translateY(2px) translateX(-1px);
 }
-.timess :nth-child(3){
+.timess:nth-child(3){
   opacity: 0;
   transform: rotate(45deg);
 }
