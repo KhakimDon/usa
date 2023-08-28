@@ -17,7 +17,7 @@ export default {
       students: [],
       just23: false,
       pop: false,
-      student: {},
+      student: [],
     };
   },
   created() {
@@ -121,7 +121,7 @@ export default {
             for(let i of this.students){
               if(i.id == event.target.children[1].value){
                 this.pop = true
-                this.student = i
+                this.student.push(i)
               }
 
             }
@@ -135,7 +135,7 @@ export default {
           for(let i of this.students){
               if(i.id == event.target.children[1].value){
                 this.pop = true
-                this.student = i
+                this.student.push(i)
               }
 
             }
@@ -390,14 +390,14 @@ export default {
     <div v-if="pop" class="popups">
       <div class="popups_wrapper">
         <div class="popups_wrapper_content">
-          <h2>{{ this.student.name }}</h2>
-          <h2>ID: {{ this.student.id }}</h2>
+          <h2>{{ this.student[0].name }}</h2>
+          <h2>ID: {{ this.student[0].id }}</h2>
         </div>
         <hr class="popup_line">
-        <div v-for="item of this.student.subjects" :key="item.id" class="popup_item">
+        <div v-for="item of this.student[0].subjects" :key="item.id" class="popup_item">
           <div>
             <span style="margin-left: 20px">Subject</span>
-            <h2>{{ this.student.subjects.indexOf(item) + 1 }}.  {{ item.title }}</h2>
+            <h2>{{ this.student[0].subjects.indexOf(item) + 1 }}.  {{ item.title }}</h2>
           </div>
           <div>
             <span>Teacher</span>
