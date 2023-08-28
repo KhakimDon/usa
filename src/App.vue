@@ -242,9 +242,9 @@ export default {
           
         </div>
         <div @click="popmenuu" class="popup">
+          <!-- <span :class="{timess: this.just == true}"></span>
           <span :class="{timess: this.just == true}"></span>
-          <span :class="{timess: this.just == true}"></span>
-          <span :class="{timess: this.just == true}"></span>
+          <span :class="{timess: this.just == true}"></span> -->
         </div>
         <div :class="{popmenuactive: this.just == true}" class="popmenu">
           <p style="display: flex; justify-content: center;width:100%; color: white; margin-top: 15px">
