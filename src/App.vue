@@ -34,8 +34,8 @@ export default {
       b.classList.toggle("popmenuactive")
 
     },
-    async fetchdata() {
-      await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
+     fetchdata() {
+       axios.get(import.meta.env.VITE_API_KEY).then((response) => {
         for (let i of response.data.data) {
           let obj = {
             name: i[0],
@@ -110,7 +110,7 @@ export default {
     popup(item){
       
     },
-    async rest() {
+    rest() {
       if (event.target.children[1].value.length < 4) {
         event.target.children[1].style.border = "2px solid red";
       } else {  
@@ -120,11 +120,8 @@ export default {
           if (check.children[2].value.length > 0) {
             for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                 this.student.id = i.id
-                 this.student.name = i.name
-                 this.student.subjects = i.subjects
-                console.log(this.student);
-                console.log('a');
+                this.student = i
+                
                 setTimeout(() => {
                   this.pop = true
                 }, 1000);
@@ -140,11 +137,8 @@ export default {
         if(check.children.length == 0){
           for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                this.student.id = i.id
-                 this.student.name = i.name
-                 this.student.subjects = i.subjects
+                this.student = i
                 console.log(this.student);
-                console.log('a');
                 setTimeout(() => {
                   this.pop = true
                 }, 1000);
@@ -399,7 +393,7 @@ export default {
         </svg>
       </div>
     </div>
-    <div style="pointer-events: none; opacity: 30%" class="popups">
+    <div v-if="pop" class="popups">
       <div class="popups_wrapper">
         <div class="popups_wrapper_content">
           <h2>{{ this.student.name }}</h2>
