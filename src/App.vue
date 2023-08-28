@@ -14,7 +14,8 @@ export default {
       students: [],
       just2: false,
       pop: false,
-      student: {}
+      student: {},
+      pops: false,
     };
   },
   created() {
@@ -23,6 +24,7 @@ export default {
   methods: {
     popmenuu(){
       this.just2 =  !this.just2 
+      this.pops = !this.pops
     },
     async fetchdata() {
       await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
@@ -241,12 +243,12 @@ export default {
         </a>
           
         </div>
-        <div @click="popmenuu" class="popup">
-          <!-- <span :class="{timess: this.just2 == true}"></span>
-          <span :class="{timess: this.just2 == true}"></span>
-          <span :class="{timess: this.just2 == true}"></span> -->
+        <div @click="popmenuu" class="popup" :class="{timess: this.just2 == true}">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <template :class="{popmenuactive: this.just2 == true}" class="popmenu">
+        <div v-if="this.pops" class="popmenu popmenuactive">
           <p style="display: flex; justify-content: center;width:100%; color: white; margin-top: 15px">
             CONTACT US
             <span ></span>
@@ -335,7 +337,7 @@ export default {
           </svg>
         </a>
          </div>
-        </template>
+        </div>
       </div>
     </div>
   </header>
@@ -604,7 +606,16 @@ export default {
   margin-right: 10px;
 }
 }
-
+.timess :nth-child(1){
+  transform: rotate(45deg) translateY(10px) translateX(10px);
+}
+.timess :nth-child(2){
+  transform: rotate(-45deg)  translateY(2px) translateX(-1px);
+}
+.timess :nth-child(3){
+  opacity: 0;
+  transform: rotate(45deg);
+}
 @media screen and (max-width: 430px) {
   .popup_item div[data-v-7a7a37b1]:nth-child(1){
     flex: initial !important; margin-right: 12px;

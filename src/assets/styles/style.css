@@ -446,17 +446,4 @@ body {
 
 .inner {
   text-align: center;
-}
-
-.timess:nth-child(1) {
-  transform: rotate(45deg) translateY(10px) translateX(10px);
-}
-
-.timess:nth-child(2) {
-  transform: rotate(-45deg) translateY(2px) translateX(-1px);
-}
-
-.timess:nth-child(3) {
-  opacity: 0;
-  transform: rotate(45deg);
 }/*# sourceMappingURL=style.css.map */
