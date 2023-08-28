@@ -246,7 +246,7 @@ export default {
           <span :class="{timess: this.just1 == true}"></span>
           <span :class="{timess: this.just1 == true}"></span> -->
         </div>
-        <div :class="{popmenuactive: this.just1 == true}" class="popmenu">
+        <template :class="{popmenuactive: this.just1 == true}" class="popmenu">
           <p style="display: flex; justify-content: center;width:100%; color: white; margin-top: 15px">
             CONTACT US
             <span ></span>
@@ -335,7 +335,7 @@ export default {
           </svg>
         </a>
          </div>
-        </div>
+        </template>
       </div>
     </div>
   </header>
