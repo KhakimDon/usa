@@ -12,8 +12,8 @@ export default {
   data() {
     return {
       students: [],
-      pop: false,
       just: false,
+      pop: false,
       student: {}
     };
   },
@@ -21,7 +21,7 @@ export default {
     this.fetchdata();
   },
   methods: {
-    popmenu(){
+    popmenuu(){
       this.just =  !this.just 
     },
     async fetchdata() {
@@ -241,7 +241,7 @@ export default {
         </a>
           
         </div>
-        <div @click="popmenu" class="popup">
+        <div @click="popmenuu" class="popup">
           <span :class="{timess: this.just == true}"></span>
           <span :class="{timess: this.just == true}"></span>
           <span :class="{timess: this.just == true}"></span>
