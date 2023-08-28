@@ -444,10 +444,6 @@ body {
   transition-duration: 0.3s;
 }
 
-.popmenuactive {
-  height: 100px;
-}
-
 .inner {
   text-align: center;
 }

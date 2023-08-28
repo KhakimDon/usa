@@ -13,7 +13,7 @@ export default {
     return {
       students: [],
       pop: false,
-      // popmenus: false,
+      just: false,
       student: {}
     };
   },
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     popmenu(){
-      // this.popmenus =  !this.popmenus 
+      this.just =  !this.just 
     },
     async fetchdata() {
       await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
@@ -242,11 +242,11 @@ export default {
           
         </div>
         <div @click="popmenu" class="popup">
-          <!-- <span :class="{timess: this.popmenus == true}"></span>
-          <span :class="{timess: this.popmenus == true}"></span>
-          <span :class="{timess: this.popmenus == true}"></span> -->
+          <span :class="{timess: this.just == true}"></span>
+          <span :class="{timess: this.just == true}"></span>
+          <span :class="{timess: this.just == true}"></span>
         </div>
-        <!-- <div :class="{popmenuactive: this.popmenus == true}" class="popmenu">
+        <div :class="{popmenuactive: this.just == true}" class="popmenu">
           <p style="display: flex; justify-content: center;width:100%; color: white; margin-top: 15px">
             CONTACT US
             <span ></span>
@@ -335,7 +335,7 @@ export default {
           </svg>
         </a>
          </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </header>
@@ -620,5 +620,7 @@ export default {
     flex: initial !important;
   }
 }
-
+.popmenuactive{
+  height: 100px;
+}
 </style>
