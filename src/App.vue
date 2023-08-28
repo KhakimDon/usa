@@ -107,8 +107,16 @@ export default {
         }
       }
     },
-    popup(item){
-      
+    getSmth(item){
+      if(item == "name"){
+        return this.student.name
+      }
+      if(item == "id"){
+        return   "ID: "  + this.student.id
+      }
+      if(item == "subject"){
+        return  this.student.subject
+      }
     },
     rest() {
       if (event.target.children[1].value.length < 4) {
@@ -122,6 +130,10 @@ export default {
               if(i.id == event.target.children[1].value){
                 this.pop = true
                 this.student = i
+        //         <div class="popups_wrapper_content">
+        //   <h2>{{ this.student.name }}</h2>
+        //   <h2>ID: {{ this.student.id }}</h2>
+        // </div>
               }
 
             }
@@ -390,11 +402,11 @@ export default {
     <div v-if="pop" class="popups">
       <div class="popups_wrapper">
         <div class="popups_wrapper_content">
-          <h2>{{ this.student.name }}</h2>
-          <h2>ID: {{ this.student.id }}</h2>
+          <h2>{{ this.getSmth("name") }}</h2>
+          <h2>{{ this.getSmth("id") }}</h2>
         </div>
         <hr class="popup_line">
-        <div v-for="item of this.student.subjects" :key="item.id" class="popup_item">
+        <!-- <div v-for="item of this.getSmth('subject')" :key="item.id" class="popup_item">
           <div>
             <span style="margin-left: 20px">Subject</span>
             <h2>{{ this.student.subjects.indexOf(item) + 1 }}.  {{ item.title }}</h2>
@@ -409,12 +421,11 @@ export default {
           </div>
           <div>
             <span>Status</span>
-            <!-- style="background-color: #c60002; color: white; padding: 1px 5px" -->
             <h2 class="failed" :class="{passed: this.params(item.mark) >= 50}">
             {{  this.params(item.mark) >= 50? "Passed" : "Failed" }}
             </h2>
           </div>
-        </div>
+        </div> -->
         <button @click="this.pop = false">Close</button>
        </div>
     </div>
