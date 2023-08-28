@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       students: [],
-      just2: false,
+      just23: false,
       pop: false,
       student: {},
       pops: false,
@@ -243,7 +243,7 @@ export default {
         </a>
           
         </div>
-        <div @click="popmenuu" class="popup" :class="{timess: this.just2 == true}">
+        <div @click="popmenuu" class="popup" :class="{timess: this.just23 == true}">
           <span></span>
           <span></span>
           <span></span>
