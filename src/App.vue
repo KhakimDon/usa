@@ -1,18 +1,13 @@
-<script setup>
-import SwiperItem from "./components/SwiperItem.vue";
-import Pop from "./components/Pop.vue";
-import Popup from "./components/Popup.vue";
-</script>
 
 <script>
+import SwiperItem from "./components/SwiperItem.vue";
+import Pop from "./components/Pop.vue";
 import axios from "axios";
-import Pop from './components/Pop.vue';
-
+import store from './store'
 export default {
   components: {
     SwiperItem,
     Pop,
-    Popup
   },
   data() {
     return {
@@ -20,11 +15,10 @@ export default {
       just23: false,
       pop: false,
       student: {},
-      _names: "khakim",
-      _id: "78448"
     };
   },
   mounted() {
+    console.log(store);
     axios.get(import.meta.env.VITE_API_KEY).then((response) => {
         for (let i of response.data.data) {
           let obj = {
@@ -57,6 +51,7 @@ export default {
       b.classList.toggle("popmenuactive")
 
     },
+   
     param(item){
       if(item == 'abs'){
         return "abs"
@@ -108,8 +103,10 @@ export default {
         }
       }
     },
-   
-    rest() {
+    popup(item){
+      
+    },
+     rest() {
       if (event.target.children[1].value.length < 4) {
         event.target.children[1].style.border = "2px solid red";
       } else {  
@@ -117,13 +114,14 @@ export default {
 
         if ( check.children.length > 0) {
           if (check.children[2].value.length > 0) {
-            for(let i of this.students){
+             for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                this.pop = true
                 this.student = i
-                this._names = i.name
-                this._id = i.id
+                setTimeout(() => {
+                  this.pop = true
+                }, 10000);
               }
+
             }
 
           } else {
@@ -134,10 +132,10 @@ export default {
         if(check.children.length == 0){
           for(let i of this.students){
               if(i.id == event.target.children[1].value){
-                this.pop = true
                 this.student = i
-                this._names = i.name
-                this._id = i.id
+                setTimeout(() => {
+                  this.pop = true
+                }, 10000);
               }
 
             }
@@ -389,7 +387,36 @@ export default {
         </svg>
       </div>
     </div>
-    <Popup :_name="this._names"/>
+    <div v-if="pop" class="popups">
+      <div class="popups_wrapper">
+        <div class="popups_wrapper_content">
+          <h2> {{this.student.name}}</h2>
+          <h2></h2>
+        </div>
+        <hr class="popup_line">
+        <!-- <div v-for="item of this.student.subjects" :key="item.id" class="popup_item">
+          <div>
+            <span style="margin-left: 20px">Subject</span>
+            <h2>{{ this.student.subjects.indexOf(item) + 1 }}.  {{ item.title }}</h2>
+          </div>
+          <div>
+            <span>Teacher</span>
+            <h2> {{ item.teacher }} </h2>
+          </div>
+          <div>
+            <span>Mark</span>
+            <h2> {{ this.param(item.mark)  }} </h2>
+          </div>
+          <div>
+            <span>Status</span>
+            <h2 class="failed" :class="{passed: this.params(item.mark) >= 50}">
+            {{  this.params(item.mark) >= 50? "Passed" : "Failed" }}
+            </h2>
+          </div>
+        </div> -->
+        <button @click="this.pop = false">Close</button>
+       </div>
+    </div>
   </main>
 </template>
 
@@ -523,11 +550,6 @@ export default {
   .popup_item div{
     flex: initial !important;
   }
-}
-
-.popups{
-  opacity: 0.5 !important;
-  pointer-events: none !important;
 }
 
 </style>
