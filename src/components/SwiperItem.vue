@@ -84,7 +84,7 @@ export default {
                 link: "https://www.educanada.ca/index.aspx?lang=eng",
             },
             {
-                logo: "src/assets/l.png",
+                logo: "https://magenta-panda-17c836.netlify.app/assets/l-79d973da.png",
                 title: "Mr.Doniyor's School",
                 country: "Uzbekistan",
                 link: "http://mrdoniyor.com/",
