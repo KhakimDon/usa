@@ -20,7 +20,7 @@ export default {
       just23: false,
       pop: false,
       student: {},
-      _name: "khakim",
+      _names: "khakim",
       _id: "78448"
     };
   },
@@ -121,14 +121,9 @@ export default {
               if(i.id == event.target.children[1].value){
                 this.pop = true
                 this.student = i
-                this._name = i.name
+                this._names = i.name
                 this._id = i.id
-        //         <div class="popups_wrapper_content">
-        //   <h2>{{ this.student.name }}</h2>
-        //   <h2>ID: {{ this.student.id }}</h2>
-        // </div>
               }
-
             }
 
           } else {
@@ -141,7 +136,7 @@ export default {
               if(i.id == event.target.children[1].value){
                 this.pop = true
                 this.student = i
-                this._name = i.name
+                this._names = i.name
                 this._id = i.id
               }
 
@@ -394,7 +389,7 @@ export default {
         </svg>
       </div>
     </div>
-    <Popup :_name="this._name"/>
+    <Popup :_name="this._names"/>
   </main>
 </template>
 
