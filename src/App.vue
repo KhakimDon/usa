@@ -107,6 +107,7 @@ export default {
       
     },
      rest() {
+      let flag = false
       if (event.target.children[1].value.length < 4) {
         event.target.children[1].style.border = "2px solid red";
       } else {  
@@ -115,11 +116,16 @@ export default {
         if ( check.children.length > 0) {
           if (check.children[2].value.length > 0) {
              for(let i of this.students){
+
+              if(this.students.indexOf(i)  == this.students.length - 1){
+              flag = true
+              }
+
               if(i.id == event.target.children[1].value){
                 this.student = i
                 setTimeout(() => {
-                  this.pop = true
-                }, 10000);
+                  flag == true ? this.pop = true : this.pop = false
+                }, 100);
               }
 
             }
@@ -131,11 +137,14 @@ export default {
         }
         if(check.children.length == 0){
           for(let i of this.students){
+            if(this.students.indexOf(i)  == this.students.length - 1){
+              flag = true
+            }
               if(i.id == event.target.children[1].value){
                 this.student = i
                 setTimeout(() => {
-                  this.pop = true
-                }, 10000);
+                  flag == true ? this.pop = true : this.pop = false
+                }, 100);
               }
 
             }
@@ -391,10 +400,10 @@ export default {
       <div class="popups_wrapper">
         <div class="popups_wrapper_content">
           <h2> {{this.student.name}}</h2>
-          <h2></h2>
+          <h2>{{this.student.id}}</h2>
         </div>
         <hr class="popup_line">
-        <!-- <div v-for="item of this.student.subjects" :key="item.id" class="popup_item">
+        <div v-for="item of this.student.subjects" :key="item.id" class="popup_item">
           <div>
             <span style="margin-left: 20px">Subject</span>
             <h2>{{ this.student.subjects.indexOf(item) + 1 }}.  {{ item.title }}</h2>
@@ -413,7 +422,7 @@ export default {
             {{  this.params(item.mark) >= 50? "Passed" : "Failed" }}
             </h2>
           </div>
-        </div> -->
+        </div>
         <button @click="this.pop = false">Close</button>
        </div>
     </div>
