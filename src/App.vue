@@ -121,6 +121,7 @@ export default {
             for(let i of this.students){
               if(i.id == event.target.children[1].value){
                 this.student = i
+                console.log(this.student);
                 setTimeout(() => {
                   this.pop = true
                 }, 1000);
@@ -137,6 +138,7 @@ export default {
           for(let i of this.students){
               if(i.id == event.target.children[1].value){
                 this.student = i
+                console.log(this.student);
                 setTimeout(() => {
                   this.pop = true
                 }, 1000);
