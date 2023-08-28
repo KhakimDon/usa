@@ -124,6 +124,7 @@ export default {
                  this.student.name = i.name
                  this.student.subjects = i.subjects
                 console.log(this.student);
+                console.log('a');
                 setTimeout(() => {
                   this.pop = true
                 }, 1000);
@@ -143,6 +144,7 @@ export default {
                  this.student.name = i.name
                  this.student.subjects = i.subjects
                 console.log(this.student);
+                console.log('a');
                 setTimeout(() => {
                   this.pop = true
                 }, 1000);
@@ -397,7 +399,7 @@ export default {
         </svg>
       </div>
     </div>
-    <div v-if="pop" class="popups">
+    <div style="pointer-events: none; opacity: 30%" class="popups">
       <div class="popups_wrapper">
         <div class="popups_wrapper_content">
           <h2>{{ this.student.name }}</h2>
