@@ -24,22 +24,8 @@ export default {
       _id: "78448"
     };
   },
-  created() {
-    this.fetchdata();
-  },
-  methods: {
-    popmenuu(){
-      // console.log(burgermenu);
-      let s = document.querySelectorAll(".sticks")
-      for(let i of s){
-        i.classList.toggle("timess")
-      }
-      let b = document.querySelector(".burgermenu")
-      b.classList.toggle("popmenuactive")
-
-    },
-    async fetchdata() {
-      await axios.get(import.meta.env.VITE_API_KEY).then((response) => {
+  mounted() {
+    axios.get(import.meta.env.VITE_API_KEY).then((response) => {
         for (let i of response.data.data) {
           let obj = {
             name: i[0],
@@ -59,6 +45,17 @@ export default {
           this.students.push(obj)
         }
       });
+  },
+  methods: {
+    popmenuu(){
+      // console.log(burgermenu);
+      let s = document.querySelectorAll(".sticks")
+      for(let i of s){
+        i.classList.toggle("timess")
+      }
+      let b = document.querySelector(".burgermenu")
+      b.classList.toggle("popmenuactive")
+
     },
     param(item){
       if(item == 'abs'){
