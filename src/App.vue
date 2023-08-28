@@ -243,7 +243,7 @@ export default {
         </a>
           
         </div>
-        <div @click="popmenuu" class="popup" :class="{timess: this.just23 == true}">
+        <div @click="popmenuu" class="popup" >
           <span></span>
           <span></span>
           <span></span>
